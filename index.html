@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetic Verve</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+    <header class="bg-gradient-to-r from-pink-500 to-blue-300 p-6 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-white">Kinetic Verve</h1>
+            <p class="text-lg text-white font-light italic">AI-lign. Practice. Flow.</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero bg-cover bg-center h-[400px] flex items-center justify-center text-center text-white" style="background-image: url('https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/0d7b095c4699e5ca04a9fb28aff54b7e3ca46243/01_week_1.png');">
+            <div class="bg-black bg-opacity-50 p-4 rounded">
+                <h2 class="text-4xl font-bold">Welcome to Kinetic Verve</h2>
+                <p class="text-xl mt-2">Your AI-powered guide to better yoga practices</p>
+                <a href="#contact" class="mt-4 inline-block bg-pink-500 hover:bg-pink-400 text-white py-2 px-4 rounded shadow">Get Started</a>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-6">Features</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 border rounded shadow">
+                        <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/0d7b095c4699e5ca04a9fb28aff54b7e3ca46243/01_week_1.png" alt="Feature 1" class="mx-auto mb-4 rounded">
+                        <h3 class="text-xl font-semibold">Real-time Feedback</h3>
+                        <p class="mt-2">Receive instant AI-powered guidance to improve your yoga poses.</p>
+                    </div>
+                    <div class="p-6 border rounded shadow">
+                        <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/0d7b095c4699e5ca04a9fb28aff54b7e3ca46243/03_week1.png" alt="Feature 2" class="mx-auto mb-4 rounded">
+                        <h3 class="text-xl font-semibold">Personalized Reports</h3>
+                        <p class="mt-2">Track your progress with detailed analytics tailored to you.</p>
+                    </div>
+                    <div class="p-6 border rounded shadow">
+                        <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/0d7b095c4699e5ca04a9fb28aff54b7e3ca46243/birgs_xx_A_modern_minimalist_Instagram_post_mockup_showing_a__60557f7b-fce0-43d9-a6ae-b2d011873c6c_3.png" alt="Feature 3" class="mx-auto mb-4 rounded">
+                        <h3 class="text-xl font-semibold">Breath Alignment</h3>
+                        <p class="mt-2">Optimize your breathing with AI-guided techniques.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-12 bg-gray-50">
+            <div class="container mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-6">Contact Us</h2>
+                <form action="YOUR_ENDPOINT_HERE" method="POST" class="max-w-lg mx-auto bg-white p-6 rounded shadow">
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full border-gray-300 rounded shadow-sm">
+                    </div>
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full border-gray-300 rounded shadow-sm">
+                    </div>
+                    <div class="mb-4">
+                        <label for="message" class="block text-sm font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full border-gray-300 rounded shadow-sm"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded shadow hover:bg-blue-400">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Kinetic Verve. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
