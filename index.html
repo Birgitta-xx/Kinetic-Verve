@@ -13,7 +13,41 @@
         .tagline {
             font-family: 'Quicksand', sans-serif;
         }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailField = document.getElementById('email');
+            const submitButton = document.querySelector('button[type="submit"]');
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const thoughtsField = document.getElementById('thoughts');
+            const maxCheckboxes = 3;
+
+            function updateSubmitButtonState() {
+                const emailValid = emailField.value.includes('@') && emailField.value.includes('.');
+                const atLeastOneChecked = Array.from(checkboxes).some(cb => cb.checked);
+                submitButton.disabled = !(emailValid && atLeastOneChecked);
+            }
+
+            emailField.addEventListener('input', updateSubmitButtonState);
+
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', () => {
+                    const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+                    if (checkedCount > maxCheckboxes) {
+                        checkbox.checked = false;
+                        alert('You can select up to 3 options only.');
+                    }
+                    updateSubmitButtonState();
+                });
+            });
+
+            updateSubmitButtonState();
+        });
+    </script>
 </head>
 <body class="bg-white text-gray-800">
     <!-- Hero Section -->
@@ -22,7 +56,7 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-6">Kinetic Verve</h1>
             <p class="tagline text-xl md:text-2xl italic">AI-lign. Practice. Flow.</p>
             <div class="mt-8">
-                <a href="#contact" class="bg-white text-[#FF6F91] font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-[#FF6F91] hover:text-white transition">Get Started</a>
+                <a href="#opinion" class="bg-white text-[#FF6F91] font-bold py-2 px-4 rounded-lg shadow-lg hover:bg-[#FF6F91] hover:text-white transition">Get Started</a>
             </div>
         </div>
     </section>
@@ -38,14 +72,14 @@
                     <p>Receive AI-guided corrections to perfect your poses and prevent injuries.</p>
                 </div>
                 <div class="text-center">
-                    <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/main/birgs_xx_Bright_airy_space_floating_holographic_UI_elements_i_d06a6434-c3fb-4619-938f-07a436d9c144_3.png" alt="Progress Tracking" class="mx-auto rounded-lg shadow-lg mb-6">
+                    <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/main/birgs_xx_Bright_airy_space_floating_holographic_UI_elements_i_d06a6434-c3fb-4619-938f-07a436d9c144_3.png" alt="Personal Progress" class="mx-auto rounded-lg shadow-lg mb-6">
                     <h3 class="text-xl font-bold mb-4">Personalized Progress</h3>
                     <p>Track your growth and set achievable goals tailored to your journey.</p>
                 </div>
                 <div class="text-center">
-                    <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/0d7b095c4699e5ca04a9fb28aff54b7e3ca46243/birgs_xx_A_modern_minimalist_Instagram_post_mockup_showing_a__60557f7b-fce0-43d9-a6ae-b2d011873c6c_3.png" alt="Community Support" class="mx-auto rounded-lg shadow-lg mb-6">
+                    <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/main/birgs_xx_A_modern_minimalist_Instagram_post_mockup_showing_a__60557f7b-fce0-43d9-a6ae-b2d011873c6c_3.png" alt="Motivational Community" class="mx-auto rounded-lg shadow-lg mb-6">
                     <h3 class="text-xl font-bold mb-4">Motivational Community</h3>
-                    <p>Connect with like-minded individuals to share your journey and stay motivated.</p>
+                    <p>Connect with like-minded individuals to share your progress and stay motivated.</p>
                 </div>
                 <div class="text-center">
                     <img src="https://raw.githubusercontent.com/Birgitta-xx/Kinetic-Verve/main/birgs_xx_Minimalist_femlale_human_figure_in_basic_yoga_pose_s_6619d015-b610-4f10-b055-bb14b052f116_2.png" alt="Breath Alignment" class="mx-auto rounded-lg shadow-lg mb-6">
@@ -56,10 +90,10 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="bg-gray-100 py-20">
+    <!-- Your Opinion Matters Section -->
+    <section id="opinion" class="bg-gray-100 py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Contact Us</h2>
+            <h2 class="text-3xl font-bold text-center mb-12">Your Opinion Matters</h2>
             <form action="https://formspree.io/f/xblyglon" method="POST" class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
                 <div class="mb-4">
                     <label for="name" class="block text-sm font-bold mb-2">Name</label>
@@ -70,10 +104,39 @@
                     <input type="email" id="email" name="email" required class="w-full p-3 border rounded-lg">
                 </div>
                 <div class="mb-4">
-                    <label for="message" class="block text-sm font-bold mb-2">Message</label>
-                    <textarea id="message" name="message" rows="4" required class="w-full p-3 border rounded-lg"></textarea>
+                    <label for="ai-coaching" class="block text-sm font-bold mb-2">Would you use an AI Yoga Coaching app?</label>
+                    <select id="ai-coaching" name="ai-coaching" required class="w-full p-3 border rounded-lg">
+                        <option value="yes">Yes</option>
+                        <option value="no">No</option>
+                        <option value="not-sure">Not Sure</option>
+                    </select>
                 </div>
-                <button type="submit" class="w-full bg-[#FF6F91] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#FFA864] transition">Send Message</button>
+                <div class="mb-4">
+                    <p class="block text-sm font-bold mb-2">What's important for you? (Select up to 3)</p>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="free-trial" class="mr-2"> Free Trial
+                    </label>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="real-time-feedback" class="mr-2"> Real-Time Feedback
+                    </label>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="safe-space" class="mr-2"> A Safe Space to Practice Without Anyone Judging You
+                    </label>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="visual-avatar" class="mr-2"> Visual Avatar
+                    </label>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="community" class="mr-2"> Community to Motivate You
+                    </label>
+                    <label class="block mb-2">
+                        <input type="checkbox" name="important[]" value="gamification" class="mr-2"> Gamification Part to Reach Your Goals
+                    </label>
+                </div>
+                <div class="mb-4">
+                    <label for="thoughts" class="block text-sm font-bold mb-2">Thoughts, Ideas or Concerns?</label>
+                    <textarea id="thoughts" name="thoughts" rows="4" class="w-full p-3 border rounded-lg"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-[#FF6F91] text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-[#FFA864] transition">Submit</button>
             </form>
         </div>
     </section>
